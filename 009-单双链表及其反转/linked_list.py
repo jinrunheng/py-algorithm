@@ -19,6 +19,9 @@ class LinkedList:
 
     @staticmethod
     def print_linked_list(head):
+        if not head:
+            print('LinkedList is empty')
+            return
         current = head
         while current:
             print(f"{current.data}", end="")

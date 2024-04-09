@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class DoublyNode:
     def __init__(self, data=None):
         self.data = data
@@ -38,9 +41,26 @@ class DoublyLinkedList:
                 print(" -> None")
 
 
+class Solution:
+    def reverseDoubleList(self, head: Optional[DoublyNode]) -> Optional[DoublyNode]:
+        pre_node = None
+        while head:
+            next_node = head.next
+            head.next = pre_node
+            head.prev = next_node
+            pre_node = head
+            head = next_node
+        return pre_node
+
+
 dll = DoublyLinkedList()
 dll.append(1)
 dll.append(2)
 dll.append(3)
 dll.append(4)
+print('原链表：')
 dll.print_list(dll.head)
+sol = Solution()
+reversed_head = sol.reverseDoubleList(dll.head)
+print('反转双向链表：')
+dll.print_list(reversed_head)

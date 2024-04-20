@@ -10,6 +10,16 @@ class ListNode:
 
 
 class Solution:
+    @staticmethod
+    def print_linked_list(head: Optional[ListNode]):
+        current = head
+        while current:
+            print(f"{current.val}", end="")
+            if current:
+                print(" -> ", end="")
+            current = current.next
+        print('None')
+
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None or list2 is None:
             return list1 if list1 is not None else list2
@@ -46,5 +56,8 @@ head = ListNode(4)
 head.next = ListNode(2)
 head.next.next = ListNode(1)
 head.next.next.next = ListNode(3)
-
-sol.sortList(head)
+print("原链表：")
+sol.print_linked_list(head)
+sorted_head = sol.sortList(head)
+print("排序后链表：")
+sol.print_linked_list(sorted_head)

@@ -14,3 +14,12 @@ def bubble_sort(arr):
         # 如果没有发生交换，则数组已经是有序的
         if not swapped:
             break
+
+
+# 测试冒泡排序函数
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("排序前的数组:")
+print(arr)
+print("排序后的数组:")
+bubble_sort(arr)
+print(arr)
